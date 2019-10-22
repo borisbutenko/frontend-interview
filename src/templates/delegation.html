@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+				content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Delegation</title>
+	<style>
+		.list {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+		}
+
+		.list__item:not(:last-child) {
+			margin-bottom: 8px;
+		}
+	</style>
+</head>
+<body>
+	<main id="main">
+		<ul class="list">
+			<li class="list__item">
+				<button class="list__btn" type="button" data-id="1">hidden_id</button>
+			</li>
+			<li class="list__item">
+				<button class="list__btn" type="button" data-id="2">hidden_id</button>
+			</li>
+		</ul>
+	</main>
+	<script>
+		const list = document.getElementById('main').firstElementChild
+		new Array(100).fill(null).forEach((_, i) => {
+			list.insertAdjacentHTML('beforeEnd', '\
+				<li class="list__item">\
+					<button class="list__btn" type="button" data-id="' + (i + 3) + '">hidden_id</button>\
+				</li>\
+			')
+		})
+	</script>
+	<!-- TODO: делегирование на клик по кнопке, выводящий data-id через alert -->
+	<script>
+
+	</script>
+</body>
+</html>
